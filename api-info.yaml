@@ -5,6 +5,7 @@ metadata:
   description: bridge machine service maintenance kafka
 spec:
   type: asyncapi
+  owner: vlad
   lifecycle: production
   definition: 
     $text: ./contract.yml
