@@ -1,49 +1,70 @@
-asyncapi: "2.1.0"
+# asyncapi: "2.1.0"
+# info:
+#   title: bridge-machine-service-maintenance
+#   version: "1.0.0"
+#   description: |
+#     This service 
+# channels:
+#   public.data.service.tracking.consolidated:
+#     description: Maintenance intervention messages from kafka
+#     bindings:
+#       kafka:
+#         topic:
+#           partitions: 5
+#           cleanup.policy: delete
+#     publish:
+#       operationId: consumeMaintenanceIntervention
+#       traits:
+#         - $ref: "#/components/operationTraits/kafkaConsume"
+#       message:
+#         $ref: "#/components/messages/maintenanceInterventionPayload"
+# components:
+#   messages:
+#     maintenanceInterventionPayload:
+#       name: Maintenance intervention
+#       title: Maintenance intervention message
+#       summary: This is the definition of a maintenance intervention message
+#       traits:
+#         - $ref: "#/components/operationTraits/kafkaKey"
+#       schemaFormat: "application/vnd.apache.avro;version=1.9.0"
+#       contentType: avro
+#       payload:
+#         - $ref: "https://raw.githubusercontent.com/ept/avrodoc/master/schemata/example.avsc"
+    
+#   operationTraits:
+#     kafkaConsume:
+#       bindings:
+#         kafka:
+#           groupId:
+#             type: string
+#             enum: ["bridge-machine-service-maintenance"]
+#     kafkaKey:
+#       bindings:
+#         kafka:
+#           key:
+#             type: string
+#             description: Equipment serial number
+asyncapi: '2.2.0'
 info:
-  title: bridge-machine-service-maintenance
-  version: "1.0.0"
-  description: |
-    This service 
-
+  title: Stockexhange Broker
+  version: '1.0.0'
+defaultContentType: application/avro
 channels:
-  public.data.service.tracking.consolidated:
-    description: Maintenance intervention messages from kafka
-    bindings:
-      kafka:
-        topic:
-          partitions: 5
-          cleanup.policy: delete
-    publish:
-      operationId: consumeMaintenanceIntervention
-      traits:
-        - $ref: "#/components/operationTraits/kafkaConsume"
+  sometopic:
+    subscribe:
       message:
-        $ref: "#/components/messages/maintenanceInterventionPayload"
-        
+        $ref: '#/components/messages/Option'
 components:
   messages:
-    maintenanceInterventionPayload:
-      name: Maintenance intervention
-      title: Maintenance intervention message
-      summary: This is the definition of a maintenance intervention message
-      traits:
-        - $ref: "#/components/operationTraits/kafkaKey"
-      schemaFormat: "application/vnd.apache.avro;version=1.9.0"
-      contentType: avro
+    Option:
+      title: Option
+      schemaFormat: 'application/vnd.apache.avro+json;version=1.9.0'
       payload:
-        - $ref: "https://raw.githubusercontent.com/ept/avrodoc/master/schemata/example.avsc"
-    
-  operationTraits:
-    kafkaConsume:
-      bindings:
-        kafka:
-          groupId:
-            type: string
-            enum: ["bridge-machine-service-maintenance"]
-    kafkaKey:
-      bindings:
-        kafka:
-          key:
-            type: string
-            description: Equipment serial number
+        $ref: 'https://gist.githubusercontent.com/dweber019/9f20724849df6c02e35ecfb152a3d6f4/raw/b634fe410fccd099b8cbfca8b908996eacc97afa/Bong.avsc'
+
+
+
+
+
+
 
