@@ -44,26 +44,40 @@
 #           key:
 #             type: string
 #             description: Equipment serial number
-asyncapi: '2.2.0'
-info:
-  title: Stockexhange Broker
+
+
+
+
+# asyncapi: '2.2.0'
+# info:
+#   title: Stockexhange Broker
+#   version: '1.0.0'
+# defaultContentType: application/avro
+# channels:
+#   sometopic:
+#     subscribe:
+#       message:
+#         $ref: '#/components/messages/Option'
+# components:
+#   messages:
+#     Option:
+#       title: Option
+#       schemaFormat: 'application/vnd.apache.avro+json;version=1.9.0'
+#       payload:
+#         $ref: 'https://gist.githubusercontent.com/dweber019/9f20724849df6c02e35ecfb152a3d6f4/raw/b634fe410fccd099b8cbfca8b908996eacc97afa/Bong.avsc'
+
+
+asyncapi: '2.0.0'
+info:  
+title: Atlantis_AutoScheduling_Event API
   version: '1.0.0'
-defaultContentType: application/avro
-channels:
-  sometopic:
-    subscribe:
-      message:
-        $ref: '#/components/messages/Option'
-components:
-  messages:
-    Option:
-      title: Option
-      schemaFormat: 'application/vnd.apache.avro+json;version=1.9.0'
-      payload:
-        $ref: 'https://gist.githubusercontent.com/dweber019/9f20724849df6c02e35ecfb152a3d6f4/raw/b634fe410fccd099b8cbfca8b908996eacc97afa/Bong.avsc'
-
-
-
+channels:  
+  Atlantis_AutoScheduling_Event:    
+    publish:      
+      message:        
+      schemaFormat: 'application/vnd.apache.avro+json;version=1.9.0'        
+      payload:          
+        $ref: 'https://kafkaschemaregistry-qa.eflangtech.com/subjects/Supplier/versions/latest/schema'
 
 
 
