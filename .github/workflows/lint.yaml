@@ -10,6 +10,8 @@ jobs:
 
       - uses: jitterbit/get-changed-files@v1
         id: files
+        with:
+          format: "\n"
       - name: Printing
         run: |
           echo "All:"
