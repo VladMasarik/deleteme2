@@ -1,0 +1,16 @@
+name: Pull Requests Checks
+on:
+  - pull_request
+
+jobs:
+  lint-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: jitterbit/get-changed-files@v1
+        id: files
+      - name: Printing
+        run: |
+          echo "All:"
+          echo "${{ steps.files.outputs.all }}"
