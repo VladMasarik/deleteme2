@@ -1,11 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: bridge-machine-service-maintenance-kafka
+  name: aaa-soap-me
   description: bridge machine service maintenance kafka
 spec:
-  type: asyncapi
+  type: soap
   owner: vlad
   lifecycle: production
   definition: 
-    $text: ./contract.yml
+    $text: ./wsdl.xml
